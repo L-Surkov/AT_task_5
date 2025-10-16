@@ -1,8 +1,6 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Selenide.$;
 import components.CheckComponent;
 import pages.PracticeFormPage;
 
@@ -39,5 +37,25 @@ public class PracticeFormWithPageObjectsTests extends TestBase {
                 .checkResult("Picture", "imagefortest.png")
                 .checkResult("Address", "г. Пенза, ул. Красная 64")
                 .checkResult("State and City", "NCR Noida");
+    }
+
+    @Test
+    void positiveMinimalFormTest() {
+        practiceFormPage.openPage()
+                .setFirstName("Ilya")
+                .setLastName("Surkov")
+                .setGender("Male")
+                .setUserNumber("8111888554")
+                .sendForm();
+        checkComponent.checkModalIsOpen()
+                .checkResult("Student Name", "Ilya Surkov")
+                .checkResult("Gender", "Male")
+                .checkResult("Mobile", "8111888554");
+    }
+    @Test
+    void NegativeFormTest() {
+        practiceFormPage.openPage()
+                .sendForm();
+        checkComponent.checkModalIsNotOpen();
     }
 }
