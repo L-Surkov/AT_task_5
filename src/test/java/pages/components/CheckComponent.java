@@ -1,4 +1,4 @@
-package components;
+package pages.components;
 
 import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.text;
@@ -8,9 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CheckComponent {
     private SelenideElement modalHeader = $(".modal-content #example-modal-sizes-title-lg"),
-            resultsTable = $(".table-responsive"),
-            closeButton = $("#closeLargeModal"),
-            header = $("h1");
+            resultsTable = $(".table-responsive");
 
     public CheckComponent checkModalIsOpen() {
         modalHeader.shouldHave(text("Thanks for submitting the form"));

@@ -1,9 +1,7 @@
 package pages;
-import components.CalendarComponent;
+import pages.components.CalendarComponent;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -26,7 +24,6 @@ public class PracticeFormPage {
 
     public PracticeFormPage openPage() {
         open("/automation-practice-form");
-        //$(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
 
         return this;
     }
